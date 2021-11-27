@@ -14,6 +14,9 @@ const Form = ({items,inputValue,setInputValue,setItems,setTotalItemCount}) => {
     
 
     const handleAddButtonClick = () => {
+	    
+	    	inputValue = inputValue.trim();	
+	    
 		if (inputValue===""){
 			alert('Please enter a valid input');
 			return;
