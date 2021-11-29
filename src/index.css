@@ -124,6 +124,34 @@ button {
   margin: 3px;
   color: #ec645b;
 }
+
+.button-add{
+  display: inline;
+  background-color: #fc8a1f; /* Green */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin: 3px;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+}
+/* .button-inc{
+  display: inline;
+  background-color: #fc1f1f; 
+  border: none;
+  border-radius: 50%;
+  color: white;
+  margin: 3px;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+} */
+
 button:focus {
   outline: 0;
 }
@@ -134,10 +162,14 @@ button:hover {
 
 .completed {
   text-decoration: line-through;
+  text-decoration-style: solid;
+  text-decoration-line: line-through;
+  text-decoration-color: red;
+  opacity: 0.5;
 }
 
 .button-complete{
-  background-color: #f1851f; /* Green */
+  background-color: #fc8a1f; /* Green */
   border: none;
   border-radius: 10px;
   color: white;
@@ -148,5 +180,7 @@ button:hover {
   display: inline-block;
   font-size: 30px;
 }
+
+
 
 

@@ -14,6 +14,9 @@ const Form = ({items,inputValue,setInputValue,setItems,setTotalItemCount}) => {
     
 
     const handleAddButtonClick = () => {
+
+		inputValue = inputValue.trim();
+
 		if (inputValue===""){
 			alert('Please enter a valid input');
 			return;
@@ -56,10 +59,13 @@ const Form = ({items,inputValue,setInputValue,setItems,setTotalItemCount}) => {
 	};
 
     return (
+        <>
         <div className='add-item-box'>
-            <input required="required" value={inputValue} onChange={(event) => setInputValue(event.target.value)} required="required" className='add-item-input' placeholder='Add an item...' />
+            <input required="required" value={inputValue} onKeyPress={(event)=>{if(event.key==="Enter")handleAddButtonClick()}} onChange={(event) => setInputValue(event.target.value)} required="required" className='add-item-input' placeholder='Add an item...' />
             <FontAwesomeIcon icon={faPlus} onClick={() => handleAddButtonClick()} />
+            {/* <button className="button-add" onClick={()=>handleAddButtonClick()}>Add</button> */}
 		</div>
+        </>
     );
 };
 
