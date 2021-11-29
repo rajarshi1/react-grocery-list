@@ -5,9 +5,9 @@ import './index.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ItemList from "./components/ItemList";
-// import Form from "./components/Form";
+// import {test} from "./components/Form";
 
-
+// console.log(test);
 export const GroceryContext = createContext();
 console.log(GroceryContext);
 
@@ -123,5 +123,5 @@ export const App = () => {
 	);
 };
 
-export default {App,GroceryContext};
+// export  {App,GroceryContext};
 // export default GroceryContext;

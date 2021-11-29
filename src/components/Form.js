@@ -1,11 +1,13 @@
 import React, {useEffect,useContext} from 'react';
-import GroceryContext from '../App'
+import {GroceryContext} from '../App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 // const Form = ({items,inputValue,setInputValue,setItems,setTotalItemCount}) => {
-
+	console.log(GroceryContext);
+	
 	const Form = () => {
+
 
 		const {items,inputValue,setInputValue,setItems,setTotalItemCount} = useContext(GroceryContext)
 
