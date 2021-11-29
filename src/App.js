@@ -1,11 +1,15 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, createContext} from 'react';
 import './index.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ItemList from "./components/ItemList";
 import Form from "./components/Form";
 
-const App = () => {
+
+export const GroceryContext = createContext();
+console.log(GroceryContext);
+
+export const App = () => {
 
 	const initialState = JSON.parse(localStorage.getItem('items')) || [];
 	const [items, setItems] = useState(
@@ -32,16 +36,21 @@ const App = () => {
 		setTotalItemCount(totalItemCount);
 	};
 
+
 	return (
-		<div className='app-background'>
-			<div className='main-container'>
-				<Header className='header'/>
-				<Form items={items} inputValue={inputValue} setInputValue={setInputValue} setItems={setItems} setTotalItemCount={setTotalItemCount}/>
-				<ItemList items={items} setItems={setItems} totalItemCount={totalItemCount} setTotalItemCount={setTotalItemCount}/>
-				<Footer items={items} inputValue={inputValue} setInputValue={setInputValue} setItems={setItems} setTotalItemCount={setTotalItemCount} totalItemCount={totalItemCount}/>
+		<GroceryContext.Provider value={{items,setItems,inputValue,setInputValue,totalItemCount,setTotalItemCount}}>
+			<div className='app-background'>
+				<div className='main-container'>
+					<Header className='header'/>
+					{/* <Form items={items} inputValue={inputValue} setInputValue={setInputValue} setItems={setItems} setTotalItemCount={setTotalItemCount}/> */}
+					<Form/>
+					<ItemList items={items} setItems={setItems} totalItemCount={totalItemCount} setTotalItemCount={setTotalItemCount}/>
+					<Footer items={items} inputValue={inputValue} setInputValue={setInputValue} setItems={setItems} setTotalItemCount={setTotalItemCount} totalItemCount={totalItemCount}/>
+				</div>
 			</div>
-		</div>
+		</GroceryContext.Provider>
 	);
 };
 
-export default App;
+export default {App,GroceryContext};
+// export default GroceryContext;

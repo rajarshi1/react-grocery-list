@@ -1,8 +1,13 @@
-import React,{useEffect}from 'react';
+import React, {useEffect,useContext} from 'react';
+import GroceryContext from '../App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const Form = ({items,inputValue,setInputValue,setItems,setTotalItemCount}) => {
+// const Form = ({items,inputValue,setInputValue,setItems,setTotalItemCount}) => {
+
+	const Form = () => {
+
+		const {items,inputValue,setInputValue,setItems,setTotalItemCount} = useContext(GroceryContext)
 
     // useEffect(() => {
     //     window.addEventListener('keydown', (event) => {
