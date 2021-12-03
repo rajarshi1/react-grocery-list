@@ -14,7 +14,8 @@ const ItemList = ({items,setItems,setTotalItemCount}) => {
 		const newItems = [...items];
 		newItems[index].quantity++;
 		setItems(newItems);
-		calculateTotal();
+        calculateTotal();
+        console.log('test-inc');
 	};
 
 	const handleQuantityDecrease = (index) => {
@@ -22,6 +23,7 @@ const ItemList = ({items,setItems,setTotalItemCount}) => {
 		newItems[index].quantity--;
 		setItems(newItems);
         calculateTotal();
+        console.log('test-dec');
         if(newItems[index].quantity<1){
            newItems.splice(index,1)
         }
@@ -53,11 +55,11 @@ const ItemList = ({items,setItems,setTotalItemCount}) => {
                         </div>
                         <div className='quantity'>
                             <button className="button-inc" onClick={() => handleQuantityDecrease(index)}>
-                                <FontAwesomeIcon icon={faChevronLeft} onClick={() => handleQuantityDecrease(index)} />
+                                <FontAwesomeIcon icon={faChevronLeft} />
                             </button>
                             <span> {item.quantity} </span>
                             <button onClick={() => handleQuantityIncrease(index)}>
-                                <FontAwesomeIcon icon={faChevronRight} onClick={() => handleQuantityIncrease(index)} />
+                                <FontAwesomeIcon icon={faChevronRight} />
                             </button>
                         </div>
                     </div>

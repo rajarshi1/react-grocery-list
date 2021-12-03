@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 // const Form = ({items,inputValue,setInputValue,setItems,setTotalItemCount}) => {
-	console.log(GroceryContext);
 	
 	const Form = () => {
+		// console.log(GroceryContext);
 
 
-		const {items,inputValue,setInputValue,setItems,setTotalItemCount} = useContext(GroceryContext)
+		var {items,inputValue,setInputValue,setItems,setTotalItemCount} = useContext(GroceryContext)
 
     // useEffect(() => {
     //     window.addEventListener('keydown', (event) => {
@@ -22,7 +22,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
     const handleAddButtonClick = () => {
 
-		inputValue = inputValue.trim();
+		 inputValue = inputValue.trim();
 
 		if (inputValue===""){
 			alert('Please enter a valid input');
