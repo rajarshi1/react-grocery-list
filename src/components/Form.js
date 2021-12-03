@@ -3,22 +3,10 @@ import {GroceryContext} from '../App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-// const Form = ({items,inputValue,setInputValue,setItems,setTotalItemCount}) => {
 	
 	const Form = () => {
-		// console.log(GroceryContext);
-
 
 		var {items,inputValue,setInputValue,setItems,setTotalItemCount} = useContext(GroceryContext)
-
-    // useEffect(() => {
-    //     window.addEventListener('keydown', (event) => {
-    //       if(event.key==='Enter'){
-    //           handleAddButtonClick()
-    //       }
-    //     });
-    // }, [inputValue]);
-    
 
     const handleAddButtonClick = () => {
 
@@ -70,7 +58,6 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
         <div className='add-item-box'>
             <input required="required" value={inputValue} onKeyPress={(event)=>{if(event.key==="Enter")handleAddButtonClick()}} onChange={(event) => setInputValue(event.target.value)} required="required" className='add-item-input' placeholder='Add an item...' />
             <FontAwesomeIcon icon={faPlus} onClick={() => handleAddButtonClick()} />
-            {/* <button className="button-add" onClick={()=>handleAddButtonClick()}>Add</button> */}
 		</div>
         </>
     );
