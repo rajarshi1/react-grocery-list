@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft, faCircle, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,7 +14,8 @@ const ItemList = ({items,setItems,setTotalItemCount}) => {
 		const newItems = [...items];
 		newItems[index].quantity++;
 		setItems(newItems);
-		calculateTotal();
+        calculateTotal();
+        console.log('test-inc');
 	};
 
 	const handleQuantityDecrease = (index) => {
@@ -22,7 +23,8 @@ const ItemList = ({items,setItems,setTotalItemCount}) => {
 		newItems[index].quantity--;
 		setItems(newItems);
         calculateTotal();
-        if(newItems[index].quantity===0){
+        console.log('test-dec');
+        if(newItems[index].quantity<1){
            newItems.splice(index,1)
         }
 	};
@@ -52,12 +54,12 @@ const ItemList = ({items,setItems,setTotalItemCount}) => {
                             )}
                         </div>
                         <div className='quantity'>
-                            <button>
-                                <FontAwesomeIcon icon={faChevronLeft} onClick={() => handleQuantityDecrease(index)} />
+                            <button className="button-inc" onClick={() => handleQuantityDecrease(index)}>
+                                <FontAwesomeIcon icon={faChevronLeft} />
                             </button>
                             <span> {item.quantity} </span>
-                            <button>
-                                <FontAwesomeIcon icon={faChevronRight} onClick={() => handleQuantityIncrease(index)} />
+                            <button onClick={() => handleQuantityIncrease(index)}>
+                                <FontAwesomeIcon icon={faChevronRight} />
                             </button>
                         </div>
                     </div>

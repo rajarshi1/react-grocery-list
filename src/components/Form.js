@@ -1,8 +1,15 @@
-import React,{useEffect}from 'react';
+import React, {useEffect,useContext} from 'react';
+import {GroceryContext} from '../App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const Form = ({items,inputValue,setInputValue,setItems,setTotalItemCount}) => {
+// const Form = ({items,inputValue,setInputValue,setItems,setTotalItemCount}) => {
+	
+	const Form = () => {
+		// console.log(GroceryContext);
+
+
+		var {items,inputValue,setInputValue,setItems,setTotalItemCount} = useContext(GroceryContext)
 
     // useEffect(() => {
     //     window.addEventListener('keydown', (event) => {
@@ -14,9 +21,9 @@ const Form = ({items,inputValue,setInputValue,setItems,setTotalItemCount}) => {
     
 
     const handleAddButtonClick = () => {
-	    
-	    	inputValue = inputValue.trim();	
-	    
+
+		 inputValue = inputValue.trim();
+
 		if (inputValue===""){
 			alert('Please enter a valid input');
 			return;
@@ -59,10 +66,13 @@ const Form = ({items,inputValue,setInputValue,setItems,setTotalItemCount}) => {
 	};
 
     return (
+        <>
         <div className='add-item-box'>
             <input required="required" value={inputValue} onKeyPress={(event)=>{if(event.key==="Enter")handleAddButtonClick()}} onChange={(event) => setInputValue(event.target.value)} required="required" className='add-item-input' placeholder='Add an item...' />
             <FontAwesomeIcon icon={faPlus} onClick={() => handleAddButtonClick()} />
+            {/* <button className="button-add" onClick={()=>handleAddButtonClick()}>Add</button> */}
 		</div>
+        </>
     );
 };
 
